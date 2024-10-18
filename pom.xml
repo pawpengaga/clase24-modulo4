@@ -10,7 +10,16 @@
   </properties>
 
   <dependencies>
-    <!-- Mockito es la novedad de la clase de hoy -->
+
+    <!-- Hay que colocar el platform para jupyter desde la version 5 -->
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>1.11.2</version>
+      <scope>test</scope>
+    </dependency>
+
+
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
@@ -19,10 +28,18 @@
     </dependency>
 
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.11.2</version>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite-api</artifactId>
+      <version>1.11.2</version>
       <scope>test</scope>
+    </dependency>
+  
+
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.11.2</version>
+        <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -38,6 +55,6 @@
         <artifactId>jackson-databind</artifactId>
         <version>2.18.0</version>
     </dependency>
-
+    
   </dependencies>
 </project>
