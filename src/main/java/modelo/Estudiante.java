@@ -1,16 +1,20 @@
 package modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Estudiante {
 
   private String nombre;
-  private int edad;
+  private String id;
+  private List<Materia> materias;
 
-
-  public Estudiante(String nombre, int edad) {
+  public Estudiante(String nombre, String id) {
     this.nombre = nombre;
-    this.edad = edad;
+    this.id = id;
+    this.materias = new ArrayList<>();
   }
-
+  
 
   public String getNombre() {
     return this.nombre;
@@ -20,22 +24,31 @@ public class Estudiante {
     this.nombre = nombre;
   }
 
-  public int getEdad() {
-    return this.edad;
+  public String getId() {
+    return this.id;
   }
 
-  public void setEdad(int edad) {
-    this.edad = edad;
+  public void setId(String id) {
+    this.id = id;
   }
 
+  public List<Materia> getMaterias() {
+    return materias;
+  }
+
+  public void agregarMateria(Materia materia) {
+    materias.add(materia);
+  }
 
   @Override
   public String toString() {
     return "{" +
       " nombre='" + getNombre() + "'" +
-      ", edad='" + getEdad() + "'" +
+      ", id='" + getId() + "'" +
+      ", materias='" + materias.toString() + "'" +
       "}";
   }
-  
+
+
 
 }

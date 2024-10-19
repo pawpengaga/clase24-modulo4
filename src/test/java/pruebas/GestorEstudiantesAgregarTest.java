@@ -15,12 +15,13 @@ public class GestorEstudiantesAgregarTest {
   public void agregarEstudiante(){
     System.out.println("Hola de nuevo");
     GestorEstudiante gestor = new GestorEstudiante();
-    Estudiante est = new Estudiante("Eileen", 19);
-    Estudiante est2 = new Estudiante("Lucca", 20);
+    Estudiante est = new Estudiante("Eileen", "19");
+    Estudiante est2 = new Estudiante("Lucca", "20");
     gestor.agregarEstudiante(est);
     gestor.agregarEstudiante(est2);
 
-    assertEquals(2, gestor.obtenterTodos().size());
+    Estudiante e = gestor.obtenerEstudiante("19");
+    assertEquals("19", e.getId());
   }
 
 }

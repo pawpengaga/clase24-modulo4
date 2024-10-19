@@ -1,24 +1,55 @@
 package servicio;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import modelo.Estudiante;
 
 public class GestorEstudiante {
 
-  private List<Estudiante> estudiantes = new ArrayList<>();
+  private Map<String, Estudiante> estudiantes;
+
+  public GestorEstudiante(){
+    estudiantes = new HashMap<>();
+  }
 
   public void agregarEstudiante(Estudiante student){
-    estudiantes.add(student);
+    estudiantes.put(student.getId(), student);
   }
 
-  public Estudiante obtenerEstudiante(String nombre){
-    return estudiantes.stream().filter(est -> est.getNombre().equals(nombre)).findFirst().orElse(null);
+  public Estudiante obtenerEstudiante(String id){
+    return estudiantes.get(id);
   }
 
-  public List<Estudiante> obtenterTodos(){
-    return estudiantes;
+  public void actualizarEstudiante(String id, String newNombre){
+    // Creamos el estudiante que ya existe
+    Estudiante estudiante = estudiantes.get(id);
+    // Si no es nulo, lo actualizamos
+    if (estudiante != null){
+      estudiante.setNombre(newNombre);
+      System.out.println("Estudiante actualizado!");
+    } else {
+      System.out.println("Estudiante no encontrado.");
+    }
+
+  }
+
+  public void eliminarEstudiante(String id){
+    if (estudiantes.remove(id) != null) {
+      System.out.println("Estudiante eliminado.");
+    } else {
+      System.out.println("Estudiante no encontrado.");
+    }
+  }
+
+  public void listarEstudiantes(){
+    if(estudiantes.isEmpty()){
+      System.out.println("No hay estudiantes registrados.");
+    } else {
+      for (Estudiante estudiante : estudiantes.values()) {
+        System.out.println(estudiante);
+      }
+    }
   }
 
 }

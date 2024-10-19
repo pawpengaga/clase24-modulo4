@@ -2,7 +2,6 @@ package pruebas;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,13 +18,13 @@ public class GestorEstudianteObtenerTest {
     
     GestorEstudiante gestor = new GestorEstudiante();
     
-    Estudiante est = new Estudiante("Eileen", 19);
-    Estudiante est2 = new Estudiante("Lucca", 20);
+    Estudiante est = new Estudiante("Eileen", "19");
+    Estudiante est2 = new Estudiante("Lucca", "20");
 
     gestor.agregarEstudiante(est);
     gestor.agregarEstudiante(est2);
 
-    List<Estudiante> todos = gestor.obtenterTodos();
+    Estudiante todos = gestor.obtenerEstudiante("19");
 
     // Comprobamos que si hayan estudiantes
     assertNotNull(todos);
